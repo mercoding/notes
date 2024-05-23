@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notepad</title>
+    <link rel="icon" type="image/x-icon" href="img/papier.png">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+    <script src="scripts/buttons.js"></script>
+</head>
+
+<body onload="render('notes')">
+
+    <nav>
+        <div class="menu" onmouseenter="closeSidebar()">
+            <img onclick="burgerButtonClicked()" class="burgerMenu" src="img/134216_menu_lines_hamburger_icon.png"
+                alt="menu button">
+            <img class="notepadIcon" src="img/papier.png" alt="notepad img">
+            <div class="notepadTitle">Notizen</div>
+        </div>
+        <div class="divider"></div>
+        <aside class="sidebar">
+            <nav id="sidebar" onmouseleave="closeSidebar()">
+                <div id="noteBG" class="noteBG">
+                    <div class="noteLabel" onclick="noteButtonWasClicked()">
+                        <div id="noteIcon" onmouseenter="openSidebar()" class="noteIcon">
+                            <div class="noteIconBG">
+                                <img src="img/die-gluhbirne.png" alt="">
+                            </div>
+                        </div>
+                        <div id="hideNoteDescription" class="noteDescription d-none">Notizen</div>
+                    </div>
+                </div>
+                <div id="trashBG" class="trashBG">
+                    <div class="trashLabel" onclick="trashButtonWasClicked()">
+                        <div id="trashIcon" class="trashIcon" onmouseenter="openSidebar()">
+                            <div class="trashIconBG">
+                                <img src="img/mulleimer.png" alt="">
+                            </div>
+                        </div>
+                        <div id="hideTrashDescription" class="trashDescription d-none">Papierkorb</div>
+                    </div>
+                </div>
+            </nav>
+        </aside>
+    </nav>
+
+    <div class="inputContainer">
+        <div id="inputNote" class="inputNote">
+            <div id="title" class="title d-none" onclick="addTitle()" contenteditable="true" role="textbox">Titel</div>
+            <div id="mainNote" class="mainNote" onclick="addNote()">
+                <div id="note" class="input" contenteditable="true" role="textbox" aria-multiline="true"
+                    onkeyup="textAreaAdjust(this, 'inputNote')">Notiz schreiben...</div>
+            </div>
+            <div id="footerNote" class="footerNote d-none">
+                <button class="button" onclick="closeNoteButtonWasClicked()">Schließen</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="content" class="content">
+
+    </div>
+
+</body>
+
+</html>
